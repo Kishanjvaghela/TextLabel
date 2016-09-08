@@ -9,6 +9,7 @@ import android.util.AttributeSet;
 import android.view.View;
 
 /**
+ * http://stackoverflow.com/a/30617116/3758898
  * Created by DSK02 on 9/8/2016.
  */
 
@@ -56,6 +57,7 @@ public class TextLabelView extends View {
 
     private String text;
     private int textSize;
+    private int textColor;
 
     /**
      * set text content
@@ -76,8 +78,13 @@ public class TextLabelView extends View {
     public Layout build() {
       TextPaint textPaint = new TextPaint();
       textPaint.setTextSize(textSize);
+      textPaint.setColor(textColor);
       return new StaticLayout(text, textPaint, (int) textPaint.measureText(text),
           Layout.Alignment.ALIGN_CENTER, 1.0f, 0.0f, true);
+    }
+
+    public void setTextColor(int textColor) {
+      this.textColor = textColor;
     }
   }
 }
